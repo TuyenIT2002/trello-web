@@ -1,0 +1,8 @@
+// tệp này dùng để ctrl+click chuột dẫn tới file từ đường dẫn
+{
+    "compilerOptions": {
+      "paths": {
+        "~/*": ["./src/*"],
+      },
+    }
+  }

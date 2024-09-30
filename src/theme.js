@@ -21,6 +21,46 @@ const theme = extendTheme({
       },
     },
   },
-  // ...other properties
+  // components
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          // Để những chữ của nút trên thanh Header không viết hoa nữa
+         textTransform: 'none', 
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root:({theme})=>({
+          color: theme.palette.primary.main,
+          fontSize: '0.875rem',
+        }),
+    },
+  },
+   // thiết lập cho những nút có viền kiểu outline cho có màu đồng bộ
+   MuiOutlinedInput: {
+    styleOverrides: {
+     root:({theme})=>({
+       color: theme.palette.primary.main,
+       fontSize: '0.875rem',
+       '.MuiOutlinedInput-notchedOutline':{
+         borderColor: theme.palette.primary.light
+       },
+        '&:hover': {
+        '.MuiOutlinedInput-notchedOutline':{
+         borderColor: theme.palette.primary.main
+       },
+       },
+       // loại bỏ viền bôi đậm mỗi khi click vào outline input
+       '& fieldset':{
+         borderWidth:'1px !important'
+       },
+     }),
+   },
+ }
+},
+ // ...other properties
 });
 export default theme;
