@@ -4,9 +4,10 @@ import { experimental_extendTheme as extendTheme} from '@mui/material/styles';
 // Create a theme instance.
 const theme = extendTheme({
   trello:{
-    appBarHeight:'48px',
+    appBarHeight:'60px',
     boardBarHeight:'58px'
   },
+
   colorSchemes: {
     light: {
       palette: {
@@ -14,6 +15,7 @@ const theme = extendTheme({
         secondary:deepOrange,
       },
     },
+
     dark: {
       palette: {
         primary:cyan,
@@ -23,6 +25,26 @@ const theme = extendTheme({
   },
   // components
   components: {
+    // Css cho Scroll ở phần header đẹp hơn
+    MuiCssBaseline:{
+      styleOverrides: {
+        body:{
+         '*::-webkit-scrollbar' : {
+            width:'8px',
+            height:'8px', 
+          },
+
+          '*::-webkit-scrollbar-thumb' : {
+            backgroundColor:'#bdc3c7',
+            borderRadius: '8px',
+          },
+          '*::-webkit-scrollbar-thumb:hover' : {
+            backgroundColor: '#27ae60 ',
+          },
+        }
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         root: {
@@ -31,6 +53,7 @@ const theme = extendTheme({
         },
       },
     },
+
     MuiInputLabel: {
       styleOverrides: {
         root:({theme})=>({
@@ -39,6 +62,7 @@ const theme = extendTheme({
         }),
     },
   },
+
    // thiết lập cho những nút có viền kiểu outline cho có màu đồng bộ
    MuiOutlinedInput: {
     styleOverrides: {
