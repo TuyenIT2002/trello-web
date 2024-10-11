@@ -15,6 +15,7 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import Tooltip from '@mui/material/Tooltip';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Profiles from '~/components/AppBar/Menus/Profiles';
+import QueueIcon from '@mui/icons-material/Queue';
 
 
 function AppBar() {
@@ -31,7 +32,7 @@ function AppBar() {
                 gap:2,
                 overflowX:'auto',
                 }}>
-                    <Box sx={{display:'flex',alignItems:'center',gap:2}}>
+                    <Box sx={{display:'flex',alignItems:'center',gap:2}}>                       
                         <AppsIcon sx={{color:'primary.main'}} />
                         <Box sx={{ display:'flex', alignItems:'center', gap:0.5}} >
                             <SvgIcon component={trelloLogo} inheritViewBox sx={{color:'primary.main'}} />
@@ -43,7 +44,7 @@ function AppBar() {
                             <Recent />
                             <Starred />
                             <Templaces />
-                            <Button variant="outlined" sx={{color:'primary.main'}}>CREATE</Button>
+                            <Button variant="outlined" sx={{color:'primary.main'}} startIcon={<QueueIcon/>}>CREATE</Button>
                         </Box>
 
                     </Box>
