@@ -23,6 +23,7 @@ function Templaces() {
         <Box>
             <Button
             id="basic-button-templaces"
+            sx={{color:'white'}}
             aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}

@@ -29,7 +29,7 @@ function Profiles() {
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
+                onClick={handleClick}               
             >
                 <Avatar
                 sx={{ width: 34, height: 34 }}
