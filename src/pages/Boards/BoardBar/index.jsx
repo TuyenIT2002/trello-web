@@ -31,10 +31,10 @@ function BoardBar() {
     return ( 
        <>
           <Box sx={{
-            backgroundColor: (theme)=>theme.palette.mode == 'dark' ? '#34495e' : '#3498db',
+            backgroundColor: (theme)=>theme.palette.mode == 'dark' ? '#34495e' : '#00a8ff',
             width:'100%',
             height:(theme)=>theme.trello.boardBarHeight,
-            borderTop:'1px solid #00bfa5',
+            borderBottom:'1px solid #fff',
             display:'flex',
             alignItems:'center',
             justifyContent:'space-between',
