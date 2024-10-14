@@ -1,7 +1,7 @@
 // 1 số cái dùng chung cho nhiều trang nên để trong đây 
 import {useState} from 'react'
 import { Box, Typography } from "@mui/material";
-import SelectMode from "../ModeSelect";
+import SelectMode from "../ModeSelect/ModeSelect";
 import AppsIcon from '@mui/icons-material/Apps';
 import { ReactComponent as trelloLogo } from '~/assets/trello.svg';
 import SvgIcon from '@mui/material/SvgIcon';
