@@ -4,7 +4,7 @@ import CardItem from './Card/Card'
 const COLUMN_HEADER_HEIGHT = '50PX'
 const COLUMN_FOOTER_HEIGHT = '56PX'
 
-function ListCards() {
+function ListCards({cards}) {
     return (    
         <Box sx={{
             display:'flex',
@@ -21,9 +21,9 @@ function ListCards() {
             '&::-webkit-scrollbar-thumb:hover' : { backgroundColor: '#bfc2cf',},
         }}
         >
-           <CardItem/>
-           <CardItem/>
-           <CardItem/>
+            {cards?.map(card =>{
+                return <CardItem key={card._id} card={card}/>
+            })}
         </Box>    
      );
 }

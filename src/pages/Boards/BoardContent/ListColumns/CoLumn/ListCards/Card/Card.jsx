@@ -8,28 +8,35 @@ import GroupIcon from '@mui/icons-material/Group';
 import CommentIcon from '@mui/icons-material/Comment';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 
-function CardItem() {
+function CardItem({card}) {
+    // Hàm này mục đích để trả về true hoặc false
+    const shouldShowCardAction = ()=>{
+        return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
+    }
+
     return ( 
-     
         <Card sx={{
             cursor:'pointer',
             boxShadow: '0 1px 1px rgba(0,0,0,0.2)',
             // thuộc tính này loại bỏ thuộc tính mặc định hidden giúp cho các card được hiển thị đầy đủ kích cỡ của nó
             overflow :'unset'
         }}>
-            <CardMedia
-                sx={{ height: 140 }}
-                image="https://trungquandev.com/wp-content/uploads/2022/11/lo-trinh-hoc-lap-trinh-web-cho-nguoi-moi-bat-dau-tu-con-so-0-trungquandev.png"
-                title="green iguana"
-            />
+            {/* Nếu tồn tại thuộc tính cover thì mới hiển thị thẻ CardMedia */}
+            {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover} title=''/>}
+
             <CardContent sx={{p:1.5, '&:last-child':{p:1.5}}}>
-                <Typography>TuyenDev MERN Stack</Typography>
+                <Typography>{card?.title}</Typography>
             </CardContent>
-            <CardActions sx={{padding:'0 4px 8px 4px'}}>
-                <Button size="small" startIcon={<GroupIcon/>}>20</Button>
-                <Button size="small" startIcon={<CommentIcon/>}>15</Button>
-                <Button size="small" startIcon={<AttachmentIcon/>}>15</Button>
-            </CardActions>
+
+            {/* Điều kiện này để fix lỗi thừa khoảng trắng khi thẻ CardActions trống, nếu shouldShowCardAction true thì mới hiển thị CardActions */}
+            {shouldShowCardAction() &&
+                <CardActions sx={{padding:'0 4px 8px 4px'}}>    
+                {/* Toán tử !! trả về true(>=1) hoặc false thay vì trả về độ dài của mảng */}
+                    {!!card?.memberIds?.length && <Button size="small" startIcon={<GroupIcon/>}>{card?.memberIds?.length}</Button>}
+                    {!!card?.comments?.length &&  <Button size="small" startIcon={<CommentIcon/>}>{card?.comments?.length}</Button>}
+                    {!!card?.attachments?.length && <Button size="small" startIcon={<AttachmentIcon/>}>{card?.attachments?.length}</Button>}
+                </CardActions>
+            }
         </Card>
       
      );

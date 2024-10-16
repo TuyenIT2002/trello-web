@@ -21,7 +21,7 @@ import DragHandleIcon from '@mui/icons-material/DragHandle';
 const COLUMN_HEADER_HEIGHT = '50PX'
 const COLUMN_FOOTER_HEIGHT = '56PX'
 
-function CoLumn() {
+function CoLumn({column}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {setAnchorEl(event.currentTarget);};
@@ -51,7 +51,7 @@ function CoLumn() {
                 cursor: 'pointer'
             }}
             >
-                Column Title
+               {column?.title}
             </Typography>
             <Box>
                 <Tooltip title="More option">
@@ -113,7 +113,7 @@ function CoLumn() {
             </Box>
         </Box>
 {/* LIST CARD */}
-            <ListCards/>
+            <ListCards cards = {column.cards}/>
 {/* FOOTER */}
         <Box sx={{
             height:COLUMN_FOOTER_HEIGHT,

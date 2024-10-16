@@ -3,7 +3,7 @@ import CoLumn from './CoLumn/CoLumn';
 import Button from '@mui/material/Button';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
-function ListColumns() {
+function ListColumns({columns}) {
    
     return ( 
         <Box sx={{
@@ -17,10 +17,9 @@ function ListColumns() {
             // Thuộc tính này cho thanh scroll nằm ngang dưới màn hình cách lề margin=2
             '&::-webkit-scrollbar-track' : {m:2},
         }}>
-            <CoLumn/>
-            <CoLumn/>
-            <CoLumn/>
-
+            {columns?.map((column)=>{
+                return <CoLumn key={column._id}  column = {column}/>              
+            })}
             <Box sx={{
                 minWidth:'200px',
                 maxWidth:'200px',
