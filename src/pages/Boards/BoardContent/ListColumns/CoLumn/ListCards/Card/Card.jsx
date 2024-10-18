@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
@@ -7,15 +8,30 @@ import CardMedia from '@mui/material/CardMedia';
 import GroupIcon from '@mui/icons-material/Group';
 import CommentIcon from '@mui/icons-material/Comment';
 import AttachmentIcon from '@mui/icons-material/Attachment';
+import {useSortable} from '@dnd-kit/sortable';
+import {CSS} from '@dnd-kit/utilities';
 
 function CardItem({card}) {
+    const {attributes, listeners, setNodeRef, transform, transition, isDragging} = useSortable({id: card._id, data:{...card}});
+    const dndKitCardStyles = {
+      // Thay Transfrom bằng Translate để kéo các cột không bị biến dạng
+      transform: CSS.Translate.toString(transform),
+      transition,
+      opacity: isDragging ? 0.5 : undefined,
+  };
+
     // Hàm này mục đích để trả về true hoặc false
     const shouldShowCardAction = ()=>{
         return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
     }
 
     return ( 
-        <Card sx={{
+        <Card
+            ref={setNodeRef}
+            style={dndKitCardStyles} 
+            {...attributes} 
+            {...listeners} 
+            sx={{
             cursor:'pointer',
             boxShadow: '0 1px 1px rgba(0,0,0,0.2)',
             // thuộc tính này loại bỏ thuộc tính mặc định hidden giúp cho các card được hiển thị đầy đủ kích cỡ của nó
