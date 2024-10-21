@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import Box from '@mui/material/Box';
 import CoLumn from './CoLumn/CoLumn';
 import Button from '@mui/material/Button';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import {SortableContext, horizontalListSortingStrategy} from '@dnd-kit/sortable';
 
-/* eslint-disable react/prop-types */
 function ListColumns({columns}) {
    
     return ( 
