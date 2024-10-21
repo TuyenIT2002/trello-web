@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Box from '@mui/material/Box';
 import ListCards from './ListCards/ListCards';
 import { useState } from "react";
@@ -23,7 +24,6 @@ import {CSS} from '@dnd-kit/utilities';
 const COLUMN_HEADER_HEIGHT = '50PX'
 const COLUMN_FOOTER_HEIGHT = '56PX'
 
-/* eslint-disable react/prop-types */
 function CoLumn({column}) {
     const {attributes, listeners, setNodeRef, transform, transition, isDragging} = useSortable({id: column._id, data:{...column}});
       const dndKitColumnStyles = {
